@@ -1,4 +1,4 @@
-name: ejercicio2
+name: Ejercicio 2
 on: [push, pull_request]
 
 jobs:
