@@ -1,0 +1,19 @@
+name: Ejercicio 1
+
+on: 
+    push:
+        branches: [main]
+
+jobs:
+    hello:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Step 1
+              run: echo "Hola, mi nombre es EMANUEL FRANCISCO MENDEZ PEREZ"
+              
+            - name: Step 2
+              run: date
+              
+            - name: Step 3
+              run: echo $RUNNER_OS
+              
