@@ -1,0 +1,27 @@
+name: Ejercicio 4
+
+on: 
+    push:
+        branches: [main]
+
+jobs:
+    test-multi-os:
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest, macos-latest]
+        runs-on: ${{ matrix.os }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Setup Node
+              uses: actions/setup-node@v3
+              with:
+                node-version: '18'
+            - name: Run Tests
+              run: npm test
+            - name: Print OS
+              run: echo $RUNNER_OS
+
+            - name: Solo en Linux
+              run: echo "Este step solo aparece en Linux"
+              if: runner.os == 'Linux'
