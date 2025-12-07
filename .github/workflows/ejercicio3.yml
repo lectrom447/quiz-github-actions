@@ -31,6 +31,13 @@ jobs:
               run: echo "Build completado exitosamente"
             - name: Create Artifact
               run: |
-                echo date > build.txt
-                echo "Version: 1.0.0" >> build.txt
+                echo date > build-info.txt
+                echo "Version: 1.0.0" >> build-info.txt
+
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v3
+              with:
+                name: build-info
+                path: build-info.txt
+               
                 
